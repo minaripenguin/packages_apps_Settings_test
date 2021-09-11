@@ -33,7 +33,7 @@ public class WaveInfoPreferenceController extends AbstractPreferenceController {
 
     private static final String PROP_WAVE_VERSION = "ro.wave.version";
     private static final String PROP_WAVE_FLAVOUR = "ro.wave.flavour";
-    private static final String PROP_WAVE_OFFICIAL = "ro.wave.is_official";
+    private static final String PROP_WAVE_RELEASETYPE = "ro.wave.releasetype";
     private static final String PROP_WAVE_MAINTAINER = "ro.wave.maintainer_name";
 
     public WaveInfoPreferenceController(Context context) {
@@ -51,7 +51,7 @@ public class WaveInfoPreferenceController extends AbstractPreferenceController {
         final String waveVersion = SystemProperties.get(PROP_WAVE_VERSION, mContext.getString(R.string.device_info_default));
         final String waveFlavour = SystemProperties.get(PROP_WAVE_FLAVOUR, mContext.getString(R.string.device_info_default));
         final String waveMaintainer = SystemProperties.get(PROP_WAVE_MAINTAINER, mContext.getString(R.string.device_info_default));
-        final String waveReleaseType = SystemProperties.getBoolean(PROP_WAVE_OFFICIAL, false) ? "Official" : "Unofficial";
+        final String waveReleaseType = SystemProperties.get(PROP_WAVE_RELEASETYPE, mContext.getString(R.string.device_info_default));
         version.setText(waveVersion);
         flavour.setText(waveFlavour);
         maintainer.setText(waveMaintainer);
